@@ -1,16 +1,15 @@
 public class NumberPalindrome {
     public static void main(String[] args) {
-        isPalindrome(-222);
+        int number = (int) (Math.random() * 2000) - 1000;
+        isPalindrome(number);
     }
 
     public static boolean isPalindrome(int number) {
-        int originalNumber = number;
+        int originalNumber;
         int reversedNumber = 0;
 
-        if (number < 0) {
-            number *= -1;
-            originalNumber *= -1;
-        }
+        number *= number < 0 ? -1 : 1;
+        originalNumber = number;
 
         while (number > 0) {
             reversedNumber *= 10;

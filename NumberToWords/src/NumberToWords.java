@@ -6,68 +6,48 @@ public class NumberToWords {
     }
 
     public static void numberToWords(int number) {
-        if (number < 0)
+        if (number < 0) {
             System.out.println(INVALID_VALUE_RESPONSE);
+        }
 
         int numDigits = getDigitCount(number);
         int reversedNum = reverse(number);
 
-        while (numDigits > 0) {
+        for (int i = 0; i < numDigits; i++) {
             int curNum = reversedNum % 10;
 
-            switch(curNum) {
-                case 0:
-                    System.out.println("Zero");
-                    break;
-                case 1:
-                    System.out.println("One");
-                    break;
-                case 2:
-                    System.out.println("Two");
-                    break;
-                case 3:
-                    System.out.println("Three");
-                    break;
-                case 4:
-                    System.out.println("Four");
-                    break;
-                case 5:
-                    System.out.println("Five");
-                    break;
-                case 6:
-                    System.out.println("Six");
-                    break;
-                case 7:
-                    System.out.println("Seven");
-                    break;
-                case 8:
-                    System.out.println("Eight");
-                    break;
-                case 9:
-                    System.out.println("Nine");
-                    break;
+            switch (curNum) {
+                case 0 -> System.out.println("Zero");
+                case 1 -> System.out.println("One");
+                case 2 -> System.out.println("Two");
+                case 3 -> System.out.println("Three");
+                case 4 -> System.out.println("Four");
+                case 5 -> System.out.println("Five");
+                case 6 -> System.out.println("Six");
+                case 7 -> System.out.println("Seven");
+                case 8 -> System.out.println("Eight");
+                case 9 -> System.out.println("Nine");
             }
 
             reversedNum /= 10;
-            numDigits--;
         }
     }
 
     public static int reverse(int number) {
         int reversedNum = 0;
 
-        while (number != 0) {
-            reversedNum *= 10;
-            reversedNum += number % 10;
-            number /= 10;
+        for (int i = number; i != 0; i /= 10) {
+            int lastDigit = i % 10;
+            reversedNum = reversedNum * 10 + lastDigit;
         }
 
         return reversedNum;
     }
 
     public static int getDigitCount(int number) {
-        if (number < 0)
+        if (number < 0) {
             return -1;
+        }
 
         int numDigits = 0;
 

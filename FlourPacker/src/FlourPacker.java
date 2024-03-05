@@ -1,18 +1,16 @@
 public class FlourPacker {
-    public static void main(String[] args) {
+    private final static int BIG_WEIGHT = 5;
 
-    }
+    public static void main(String[] args) {}
 
     public static boolean canPack(int bigCount, int smallCount, int goal) {
-        if (bigCount < 0 || smallCount < 0 || goal < 0)
+        if (bigCount < 0 || smallCount < 0 || goal < 0) {
             return false;
+        }
 
-        int numSmallNeeded;
-
-        if (goal / 5 <= bigCount)
-            numSmallNeeded = goal - goal / 5 * 5;
-        else
-            numSmallNeeded = goal - bigCount * 5;
+        int numSmallNeeded = goal / BIG_WEIGHT <= bigCount
+            ? goal - goal / BIG_WEIGHT * BIG_WEIGHT // Note: Integer division
+            : goal - bigCount * BIG_WEIGHT;
 
         return numSmallNeeded <= smallCount;
     }

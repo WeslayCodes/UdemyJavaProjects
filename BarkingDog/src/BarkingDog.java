@@ -6,7 +6,11 @@ public class BarkingDog {
         shouldWakeUp(true, -1);
     }
 
+    // Returns whether to wake up based on hour of the day and dog barking
     public static boolean shouldWakeUp(boolean barking, int hourOfDay) {
-        return barking && (hourOfDay < 8 && hourOfDay >= 0 || hourOfDay > 22 && hourOfDay <= 23);
+        boolean wakeEarly = hourOfDay < 8 && hourOfDay >= 0;
+        boolean wakeLate = hourOfDay == 23;
+
+        return barking && (wakeEarly || wakeLate);
     }
 }

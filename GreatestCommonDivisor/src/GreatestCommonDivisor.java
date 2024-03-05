@@ -7,19 +7,21 @@ public class GreatestCommonDivisor {
     }
 
     public static int getGreatestCommonDivisor(int first, int second) {
-        if (first < 10 || second < 10)
+        if (first < 10 || second < 10) {
             return -1;
+        }
 
-        int curDivisor;
-
-        if (first > second)
-            curDivisor = second;
-        else
-            curDivisor = first;
+        boolean firstBigger = first > second;
+        int curDivisor = firstBigger ? second : first;
 
         while (curDivisor >= 1) {
-            if (first % curDivisor == 0 && second % curDivisor == 0)
-                return curDivisor;
+            boolean dividesFirst = first % curDivisor == 0;
+            boolean dividesSecond = second % curDivisor == 0;
+
+            if (dividesFirst && dividesSecond) {
+                break;
+            }
+
             curDivisor--;
         }
 
