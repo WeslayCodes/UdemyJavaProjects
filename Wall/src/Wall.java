@@ -5,15 +5,8 @@ public class Wall {
     public Wall() {}
 
     public Wall(double w, double h) {
-        if (w < 0)
-            width = 0;
-        else
-            width = w;
-
-        if (h < 0)
-            height = 0;
-        else
-            height = h;
+        setWidth(w);
+        setHeight(h);
     }
 
     public double getWidth() {
@@ -25,17 +18,11 @@ public class Wall {
     }
 
     public void setWidth(double w) {
-        if (w < 0)
-            width = 0;
-        else
-            width = w;
+        width = w < 0 ? 0 : w;
     }
 
     public void setHeight(double h) {
-        if (h < 0)
-            height = 0;
-        else
-            height = h;
+        height = h < 0 ? 0 : h;
     }
 
     public double getArea() {
