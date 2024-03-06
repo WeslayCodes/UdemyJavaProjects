@@ -1,6 +1,6 @@
 public class Floor {
-    private final double width;
-    private final double length;
+    private double width;
+    private double length;
 
     public Floor(double width, double length) {
         this.width = width < 0 ? 0 : width;

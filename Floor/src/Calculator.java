@@ -1,6 +1,6 @@
 public class Calculator {
-    private final Floor floor;
-    private final Carpet carpet;
+    private Floor floor;
+    private Carpet carpet;
 
     public Calculator(Floor floor, Carpet carpet) {
         this.floor = floor;
