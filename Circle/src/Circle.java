@@ -1,5 +1,5 @@
 public class Circle {
-    private final double radius;
+    private double radius;
 
     public Circle(double r) {
         if (r < 0) {
