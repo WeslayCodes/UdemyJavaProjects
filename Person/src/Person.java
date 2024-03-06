@@ -24,10 +24,11 @@ public class Person {
     }
 
     public void setAge(int age) {
-        if (age < 0 || age > 100)
+        if (age < 0 || age > 100) {
             this.age = 0;
-        else
+        } else {
             this.age = age;
+        }
     }
 
     public boolean isTeen() {
@@ -35,13 +36,18 @@ public class Person {
     }
 
     public String getFullName() {
-        if (firstName == "" && lastName == "")
+        if (firstName.isEmpty() && lastName.isEmpty()) {
             return "";
-        else if (firstName == "")
+        }
+
+        if (firstName.isEmpty()) {
             return lastName;
-        else if (lastName == "")
+        }
+
+        if (lastName.isEmpty()) {
             return firstName;
-        else
-            return firstName + " " + lastName;
+        }
+
+        return firstName + " " + lastName;
     }
 }
